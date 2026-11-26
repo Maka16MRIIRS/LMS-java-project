@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Non-public helper class
+
 class Student {
     private String rollNumber;
     private String name;
@@ -31,7 +31,6 @@ class Student {
         this.marks = marks;
     }
 
-    // Helper method to get grade symbol for a single mark (10-point scale)
     private String getGradeSymbol(double mark) {
         if (mark >= 90) return "O";
         else if (mark >= 80) return "A+";
@@ -42,18 +41,16 @@ class Student {
         else return "F";
     }
 
-    // Helper method to convert mark to 10.0 grade points
     private double getGradePoint(double mark) {
-        if (mark >= 90) return 10.0;      // O
-        else if (mark >= 80) return 9.0;  // A+
-        else if (mark >= 70) return 8.0;  // A
-        else if (mark >= 60) return 7.0;  // B+
-        else if (mark >= 50) return 6.0;  // B
-        else if (mark >= 40) return 5.0;  // C
-        else return 0.0;                  // F
+        if (mark >= 90) return 10.0;     
+        else if (mark >= 80) return 9.0;  
+        else if (mark >= 70) return 8.0;  
+        else if (mark >= 60) return 7.0;  
+        else if (mark >= 50) return 6.0; 
+        else if (mark >= 40) return 5.0;  
+        else return 0.0;                  
     }
 
-    // Calculate overall GPA
     public double calculateGPA() {
         double totalPoints = 0;
         for (double mark : marks) {
@@ -75,7 +72,6 @@ class Student {
     }
 }
 
-// Public class (Save file as proj.java)
 public class proj {
     private static final ArrayList<Student> studentList = new ArrayList<>();
     private static final Scanner scanner = new Scanner(System.in);
@@ -91,7 +87,7 @@ public class proj {
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline left by nextInt()
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1 -> addStudent();
@@ -113,7 +109,7 @@ public class proj {
 
         System.out.print("How many subjects does the student have? ");
         int numSubjects = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         String[] subjects = new String[numSubjects];
         double[] marks = new double[numSubjects];
@@ -124,7 +120,7 @@ public class proj {
 
             System.out.print("Enter marks for " + subjects[i] + " (out of 100): ");
             marks[i] = scanner.nextDouble();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
         }
 
         studentList.add(new Student(rollNumber, name, subjects, marks));
@@ -169,7 +165,7 @@ public class proj {
                     System.out.print("Enter new marks for " + existingSubjects[i] + ": ");
                     newMarks[i] = scanner.nextDouble();
                 }
-                scanner.nextLine(); // Consume newline
+                scanner.nextLine(); 
                 s.setMarks(newMarks);
                 System.out.println("Marks updated successfully!");
                 return;
